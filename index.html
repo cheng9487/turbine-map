@@ -179,6 +179,24 @@
             identify: false,
             attribution: '',
         });
+
+        // ===== 新增 B5000（1/5000基本地形圖）=====
+        map.createPane('pane_B5000');
+        map.getPane('pane_B5000').style.zIndex = 405;
+        var layer_B5000 = L.WMS.layer("http://maps.nlsc.gov.tw/S_Maps/wms", "B5000", {
+            pane: 'pane_B5000',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld: true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            identify: false,
+            attribution: '國土測繪中心 1/5000基本地形圖'
+        });
+        // 注意：沒有 map.addLayer(layer_B5000)，所以預設關閉
+
         function pop_Address_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -392,8 +410,10 @@
             {label: '<img src="legend/Points_4.png" /> 風機點位', layer: layer_Points_4},
             {label: '<img src="legend/Buffer_3.png" /> 500m緩衝區', layer: layer_Buffer_3},
             {label: '<img src="legend/Address_2.png" /> 門牌地址', layer: cluster_Address_2},
+            {label: "1/5000基本地形圖", layer: layer_B5000},
             {label: "正射影像", layer: layer_generalmap_1, radioGroup: 'bm' },
-            {label: "街道圖", layer: layer_OpenStreetMap_0, radioGroup: 'bm' },]
+            {label: "街道圖", layer: layer_OpenStreetMap_0, radioGroup: 'bm' },
+        ];
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
             //selectorBack: false,
