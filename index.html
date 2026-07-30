@@ -182,7 +182,7 @@
 
         // ===== 新增 B5000（1/5000基本地形圖）=====
         map.createPane('pane_B5000');
-        map.getPane('pane_B5000').style.zIndex = 401.5;  // 在 generalmap (401) 之上、Address (402) 之下
+        map.getPane('pane_B5000').style.zIndex = 402;  // 在 generalmap (401) 之上、Address (403) 之下
         var layer_B5000 = L.WMS.layer("https://wms.nlsc.gov.tw/wms", "B5000", {
             pane: 'pane_B5000',
             format: 'image/png',
@@ -261,7 +261,7 @@
             }
         }
         map.createPane('pane_Address_2');
-        map.getPane('pane_Address_2').style.zIndex = 402;
+        map.getPane('pane_Address_2').style.zIndex = 403;
         map.getPane('pane_Address_2').style['mix-blend-mode'] = 'normal';
         var layer_Address_2 = new L.geoJson(json_Address_2, {
             attribution: '',
@@ -333,7 +333,7 @@
             }
         }
         map.createPane('pane_Buffer_3');
-        map.getPane('pane_Buffer_3').style.zIndex = 403;
+        map.getPane('pane_Buffer_3').style.zIndex = 404;
         map.getPane('pane_Buffer_3').style['mix-blend-mode'] = 'normal';
         var layer_Buffer_3 = new L.geoJson(json_Buffer_3, {
             attribution: '',
@@ -387,7 +387,7 @@
             }
         }
         map.createPane('pane_Points_4');
-        map.getPane('pane_Points_4').style.zIndex = 404;
+        map.getPane('pane_Points_4').style.zIndex = 405;
         map.getPane('pane_Points_4').style['mix-blend-mode'] = 'normal';
         var layer_Points_4 = new L.geoJson(json_Points_4, {
             attribution: '',
