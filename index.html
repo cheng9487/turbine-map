@@ -22,7 +22,7 @@
             margin: 0;
         }
         </style>
-        <title>澎湖風機地圖</title>
+        <title>陸域風機地圖</title>
     </head>
     <body>
         <div id="map">
@@ -390,10 +390,10 @@
         map.addLayer(layer_Points_4);
         var overlaysTree = [
             {label: '<img src="legend/Points_4.png" /> 風機點位', layer: layer_Points_4},
-            {label: '<img src="legend/Buffer_3.png" /> 緩衝區', layer: layer_Buffer_3},
+            {label: '<img src="legend/Buffer_3.png" /> 500m緩衝區', layer: layer_Buffer_3},
             {label: '<img src="legend/Address_2.png" /> 門牌地址', layer: cluster_Address_2},
-            {label: "航照影像", layer: layer_generalmap_1, radioGroup: 'bm' },
-            {label: "OpenStreetMap 街道圖", layer: layer_OpenStreetMap_0, radioGroup: 'bm' },]
+            {label: "正射影像", layer: layer_generalmap_1, radioGroup: 'bm' },
+            {label: "街道圖", layer: layer_OpenStreetMap_0, radioGroup: 'bm' },]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
             //selectorBack: false,
