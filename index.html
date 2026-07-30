@@ -180,20 +180,18 @@
             attribution: '',
         });
 
-        // ===== 新增 B5000（1/5000基本地形圖）=====
+        // ===== B5000 改用原生 L.tileLayer.wms，避免與 PHOTO2 共用 Source 衝突 =====
         map.createPane('pane_B5000');
-        map.getPane('pane_B5000').style.zIndex = 402;  // 在 generalmap (401) 之上、Address (403) 之下
-        var layer_B5000 = L.WMS.layer("https://wms.nlsc.gov.tw/wms", "B5000", {
-            pane: 'pane_B5000',
+        map.getPane('pane_B5000').style.zIndex = 402;
+        var layer_B5000 = L.tileLayer.wms("https://wms.nlsc.gov.tw/wms", {
+            layers: 'B5000',
             format: 'image/png',
-            uppercase: true,
             transparent: true,
-            continuousWorld: true,
-            tiled: true,
-            info_format: 'text/html',
-            opacity: 1,
-            identify: false,
-            attribution: '國土測繪中心 1/5000基本地形圖'
+            version: '1.1.1',
+            attribution: '國土測繪中心 1/5000基本地形圖',
+            pane: 'pane_B5000',
+            opacity: 1.0,
+            maxZoom: 28
         });
         // 注意：沒有 map.addLayer(layer_B5000)，所以預設關閉
 
